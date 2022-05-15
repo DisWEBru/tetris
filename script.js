@@ -182,6 +182,25 @@
         }
     ]
 
+    dw.xy = [
+        [0,0],
+        [0,1],
+        [0,2],
+        [0,3],
+        [1,0],
+        [1,1],
+        [1,2],
+        [1,3],
+        [2,0],
+        [2,1],
+        [2,2],
+        [2,3],
+        [3,0],
+        [3,1],
+        [3,2],
+        [3,3]
+    ]
+
     dw.figure_now = {
         x: 0, // Фигура
         turn: 0, // Положение фигуры
@@ -262,6 +281,18 @@
 
             dw.turn(direction)
         })
+
+        dw.next_el = document.body.querySelector('.game__next-figure')
+
+        dw.next_ar = []
+
+        for (let i = 0; i < 16; i++) {
+            let cubic = document.createElement('div')
+            cubic.className = 'game__next-cubic'
+            dw.next_el.append(cubic)
+
+            dw.next_ar.push(cubic)
+        }
 
         dw.place = document.body.querySelector('.game__place')
 
@@ -447,29 +478,7 @@
                         break
                 }
 
-                let score = 10
-
-                if (count_remove > 10) {
-                    score = 20
-                } else if (count_remove > 9) {
-                    score = 19
-                } else if (count_remove > 8) {
-                    score = 18
-                } else if (count_remove > 7) {
-                    score = 17
-                } else if (count_remove > 6) {
-                    score = 16
-                } else if (count_remove > 5) {
-                    score = 15
-                } else if (count_remove > 4) {
-                    score = 14
-                } else if (count_remove > 3) {
-                    score = 13
-                } else if (count_remove > 2) {
-                    score = 12
-                } else if (count_remove > 1) {
-                    score = 11
-                }
+                let score = 9 + count_remove
 
                 dw.score = dw.score + (count_remove * score)
 
@@ -538,6 +547,17 @@
             console.log('Ошибка добавления')
 
             return
+        }
+
+        for (let i = 0; i < dw.next_ar.length; i++) {
+            if (dw.figures[dw.figure_next.x].turn[dw.figure_next.turn][dw.xy[i][0]] != undefined
+                && dw.figures[dw.figure_next.x].turn[dw.figure_next.turn][dw.xy[i][0]][dw.xy[i][1]] == 1) {
+                if (!dw.next_ar[i].classList.contains('sel'))
+                    dw.next_ar[i].classList.toggle('sel')
+            } else {
+                if (dw.next_ar[i].classList.contains('sel'))
+                    dw.next_ar[i].classList.toggle('sel')
+            }
         }
 
         dw.figureMove()
