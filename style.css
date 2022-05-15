@@ -1,0 +1,264 @@
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: #ffffff;
+    color: #000;
+    font-family: 'Arial';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1875;
+    margin: 0;
+    text-align: left;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 20px;
+    padding: 0;
+    margin: 15px 0 15px 15px;
+}
+
+.wrapper {
+    height: 100%;
+    max-width: 450px;
+    max-height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.game__block {
+    width: 200px;
+    max-width: 100%;
+}
+
+.right {
+    flex: 0 0 auto;
+}
+
+.game__place {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: calc(100% - 15px);
+    border: 1px solid #1f2380;
+    margin-left: 15px;
+    overflow: hidden;
+}
+
+.game_start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.game__pause {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background: rgba(0,0,0,0.6)
+}
+
+.game__start-btn {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.game__start-btn:hover {
+    opacity: 0.7;
+}
+
+.game__score {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #a30567;
+    font-size: 20px;
+    padding: 0;
+    text-align: right;
+}
+
+.game__level {
+    position: absolute;
+    top: 15px;
+    right: 95px;
+    color: #a30567;
+    font-size: 20px;
+    padding: 0;
+    text-align: right;
+}
+
+.game__control-bt1 {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    width: 200px;
+    height: 200px;
+    font-size: 80px;
+    color: #a30567;
+    opacity: 0.5;
+    text-align: center;
+}
+
+.game__control-bt2 {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 200px;
+    height: 200px;
+    font-size: 80px;
+    color: #a30567;
+    opacity: 0.5;
+    text-align: center;
+}
+
+.game__control-pause {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.game__control-turn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-left: -50px;
+    width: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.game__control-down {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.game__control-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -50px;
+    height: 100px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.game__control-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -50px;
+    height: 100px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.game_des {
+    padding: 15px;
+    font-size: 14px;
+    color: #999;
+}
+
+.game__place::after {
+    content: "";
+    display: block;
+    padding-top: 150%;
+}
+
+.game__cube--blue {
+    border: 1px solid #1f2380;
+    background: #252df5;
+    position: absolute;
+}
+
+.game__cube--red {
+    border: 1px solid #a1140a;
+    background: #ff1100;
+    position: absolute;
+}
+
+.game__cube--green {
+    border: 1px solid #0c5210;
+    background: #1f6e23;
+    position: absolute;
+}
+
+.game__cube--orange {
+    border: 1px solid #c26604;
+    background: #eb8315;
+    position: absolute;
+}
+
+.game__cube--violet {
+    border: 1px solid #9a00bd;
+    background: #c210eb;
+    position: absolute;
+}
+
+.game__cube--aquamarine {
+    border: 1px solid #00b3aa;
+    background: #12ded4;
+    position: absolute;
+}
+
+.game__cube--grey {
+    border: 1px solid #545454;
+    background: #828282;
+    position: absolute;
+}
+
+@media screen and (min-width: 1100px) and (min-height: 800px) {
+    .game__block {
+        width: 340px;
+    }
+
+    .wrapper {
+        max-height: 800px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (min-height: 900px) {
+    .game__block {
+        width: 400px;
+    }
+
+    .wrapper {
+        max-height: 900px;
+    }
+}
